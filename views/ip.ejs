@@ -6,11 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" >
     <meta name="renderer" content="webkit">
     <title>IP信息</title>
+    <style>.wrapper{display:flex;text-align: center;justify-content:center;align-items:center;position:fixed;top:0;bottom:0;left:0;right:0;}.tb{width:80%;border-collapse:collapse;}.tb tr{border: solid 1px #ccc;}.tb td{width:50%;font-size:1.5rem;border: solid 1px #ccc;line-height:3rem;}</style>
   </head>
   <body>
-    <div>
-      <div>IP</div>
-      <div><%= ip %></div>
+    <div class="wrapper">
+      <table class="tb">
+        <tr>
+          <td>IP</td>
+          <td><%= ip %></td>
+        </tr>
+        <tr>
+          <td>归属地</td>
+          <td><%= country %></td>
+        </tr>
+        <tr>
+          <td>运营商</td>
+          <td><%= area %></td>
+        </tr>
+        <tr>
+          <td>IP段起始</td>
+          <td><%= begIP %></td>
+        </tr>
+        <tr>
+          <td>IP段结束</td>
+          <td><%= endIP %></td>
+        </tr>
+      </table>
     </div>
   </body>
 </html>

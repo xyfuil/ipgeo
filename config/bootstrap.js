@@ -8,6 +8,7 @@
  * For more information on seeding your app with fake data, check out:
  * https://sailsjs.com/config/bootstrap
  */
+var libqqwry = require('lib-qqwry');
 
 module.exports.bootstrap = async function() {
 
@@ -26,5 +27,7 @@ module.exports.bootstrap = async function() {
   //   // etc.
   // ]);
   // ```
+  sails['qqwry'] = libqqwry();
+  sails.qqwry.speed();
 
 };
