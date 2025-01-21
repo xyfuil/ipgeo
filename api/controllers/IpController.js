@@ -1,5 +1,7 @@
 var IpController = {};
 
+var ipRegex = /^(([1-9]?\d|1\d{2}|2[0-4]\d|25[0-5])\.){3}([1-9]?\d|1\d{2}|2[0-4]\d|25[0-5])$/;
+
 var repair = function (n,v) {
   let str='';
   for(let i=0;i<(n-v.toString().length);i++){str+='0'}
@@ -35,6 +37,13 @@ IpController['getResult'] = function (req, res) {
   if (req.headers['x-forwarded-for']) {
     ip = req.headers['x-forwarded-for'].split(',')[0];
   };
+
+  if (req.param('ip')) {
+    ip = req.param('ip');
+    if (!ipRegex.test(ip)) {
+      return res.json('IP格式错误');
+    }
+  }
 
   sails.qqwry.searchIPScope(ip, ip, function (err, iparr) {
     if (err) {
